@@ -6,13 +6,13 @@ export class SignUpController {
   handle (httpRequest: HttpRequest): HttpResponse {
     let returnObject
 
-    if (!httpRequest.body.name) {
-      returnObject = badRequest(new MissingParamError('name'))
-    }
+    const requiredFields = ['name', 'email']
 
-    if (!httpRequest.body.email) {
-      returnObject = badRequest(new MissingParamError('email'))
-    }
+    requiredFields.forEach((field) => {
+      if (!httpRequest.body[field]) {
+        returnObject = badRequest(new MissingParamError(field))
+      }
+    })
 
     return returnObject
   }
