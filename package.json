@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "prepare": "husky install",
-    "test": "jest"
+    "test": "jest",
+    "test:staged": "jest",
+    "lint-staged": "lint-staged"
   },
   "author": "",
   "license": "ISC",
